@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+</head>
+
+<body class="dashboard">
+    <div id="particles-js" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0;"></div>
+    <!-- Botón de Hamburguesa -->
+    <button id="sidebarToggle" class="hamburger-button">
+        <i class="ri-menu-4-line"></i>
+    </button>
+    <!-- Botón de cerrar Sesion -->
+    <button id="logoutButton" title="Cerra Sesion">
+        <i class="ri-logout-circle-line"></i>
+    </button>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <h1 class="titulo">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" color="#ffffff"
+                fill="none">
+                <path
+                    d="M5.18007 15.2964C3.92249 16.0335 0.625213 17.5386 2.63348 19.422C3.6145 20.342 4.7071 21 6.08077 21H13.9192C15.2929 21 16.3855 20.342 17.3665 19.422C19.3748 17.5386 16.0775 16.0335 14.8199 15.2964C11.8709 13.5679 8.12906 13.5679 5.18007 15.2964Z"
+                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                <path
+                    d="M14 7C14 9.20914 12.2091 11 10 11C7.79086 11 6 9.20914 6 7C6 4.79086 7.79086 3 10 3C12.2091 3 14 4.79086 14 7Z"
+                    stroke="currentColor" stroke-width="1.5" />
+                <path
+                    d="M16.7612 3.27615C17.5657 2.81923 18.2679 3.00336 18.6897 3.29667C18.8626 3.41693 18.9491 3.47706 19 3.47706C19.0509 3.47706 19.1374 3.41693 19.3103 3.29667C19.7321 3.00336 20.4343 2.81923 21.2388 3.27615C22.2946 3.87582 22.5335 5.85413 20.0981 7.52315C19.6343 7.84105 19.4024 8 19 8C18.5976 8 18.3657 7.84105 17.9019 7.52315C15.4665 5.85413 15.7054 3.87582 16.7612 3.27615Z"
+                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+            </svg> Mi Amor
+        </h1>
+        <nav id="nav">
+            <ul>
+                <li><a href="#inicio" class="active" >
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"
+                            color="#ffffff" fill="none">
+                            <path
+                                d="M15.0002 17C14.2007 17.6224 13.1504 18 12.0002 18C10.8499 18 9.79971 17.6224 9.00018 17"
+                                stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                            <path
+                                d="M2.35157 13.2135C1.99855 10.9162 1.82204 9.76763 2.25635 8.74938C2.69065 7.73112 3.65421 7.03443 5.58132 5.64106L7.02117 4.6C9.41847 2.86667 10.6171 2 12.0002 2C13.3832 2 14.5819 2.86667 16.9792 4.6L18.419 5.64106C20.3462 7.03443 21.3097 7.73112 21.744 8.74938C22.1783 9.76763 22.0018 10.9162 21.6488 13.2135L21.3478 15.1724C20.8473 18.4289 20.5971 20.0572 19.4292 21.0286C18.2613 22 16.5538 22 13.139 22H10.8614C7.44652 22 5.73909 22 4.57118 21.0286C3.40327 20.0572 3.15305 18.4289 2.65261 15.1724L2.35157 13.2135Z"
+                                stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" />
+                        </svg> Inicio</a>
+                </li>
+
+                <li><a href="#mensajes">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"
+                            color="#ffffff" fill="none">
+                            <path d="M8.5 14.5H15.5M8.5 9.5H12" stroke="currentColor" stroke-width="1.5"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                            <path
+                                d="M14.1706 20.8905C18.3536 20.6125 21.6856 17.2332 21.9598 12.9909C22.0134 12.1607 22.0134 11.3009 21.9598 10.4707C21.6856 6.22838 18.3536 2.84913 14.1706 2.57107C12.7435 2.47621 11.2536 2.47641 9.8294 2.57107C5.64639 2.84913 2.31441 6.22838 2.04024 10.4707C1.98659 11.3009 1.98659 12.1607 2.04024 12.9909C2.1401 14.536 2.82343 15.9666 3.62791 17.1746C4.09501 18.0203 3.78674 19.0758 3.30021 19.9978C2.94941 20.6626 2.77401 20.995 2.91484 21.2351C3.05568 21.4752 3.37026 21.4829 3.99943 21.4982C5.24367 21.5285 6.08268 21.1757 6.74868 20.6846C7.1264 20.4061 7.31527 20.2668 7.44544 20.2508C7.5756 20.2348 7.83177 20.3403 8.34401 20.5513C8.8044 20.7409 9.33896 20.8579 9.8294 20.8905C11.2536 20.9852 12.7435 20.9854 14.1706 20.8905Z"
+                                stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" />
+                        </svg> Mensajes Especiales</a>
+                </li>
+
+                <li><a href="#fotos">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"
+                            color="#ffffff" fill="none">
+                            <path
+                                d="M17 6C19.3456 6 20.0184 6 20.8263 6.61994C21.0343 6.77954 21.2205 6.96572 21.3801 7.17372C22 7.98164 22 9.15442 22 11.5V16C22 18.8284 22 20.2426 21.1213 21.1213C20.2426 22 18.8284 22 16 22H8C5.17157 22 3.75736 22 2.87868 21.1213C2 20.2426 2 18.8284 2 16V11.5C2 9.15442 2 7.98164 2.61994 7.17372C2.77954 6.96572 2.96572 6.77954 3.17372 6.61994C3.98164 6 4.65442 6 7 6"
+                                stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                            <path
+                                d="M17 7L16.1142 4.78543C15.732 3.82996 15.3994 2.7461 14.4166 2.25955C13.8924 2 13.2616 2 12 2C10.7384 2 10.1076 2 9.58335 2.25955C8.6006 2.7461 8.26801 3.82996 7.88583 4.78543L7 7"
+                                stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                            <path
+                                d="M15.5 14C15.5 15.933 13.933 17.5 12 17.5C10.067 17.5 8.5 15.933 8.5 14C8.5 12.067 10.067 10.5 12 10.5C13.933 10.5 15.5 12.067 15.5 14Z"
+                                stroke="currentColor" stroke-width="1.5" />
+                            <path d="M11.9998 6H12.0088" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg> Nuestras Fotos pendientes</a>
+                </li>
+
+                <li><a href="#musicas">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"
+                            color="#ffffff" fill="none">
+                            <path
+                                d="M7 9.5C7 10.8807 5.88071 12 4.5 12C3.11929 12 2 10.8807 2 9.5C2 8.11929 3.11929 7 4.5 7C5.88071 7 7 8.11929 7 9.5ZM7 9.5V2C7.33333 2.5 7.6 4.6 10 5"
+                                stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                            <circle cx="10.5" cy="19.5" r="2.5" stroke="currentColor" stroke-width="1.5" />
+                            <circle cx="20" cy="18" r="2" stroke="currentColor" stroke-width="1.5" />
+                            <path
+                                d="M13 19.5L13 11C13 10.09 13 9.63502 13.2466 9.35248C13.4932 9.06993 13.9938 9.00163 14.9949 8.86504C18.0085 8.45385 20.2013 7.19797 21.3696 6.42937C21.6498 6.24509 21.7898 6.15295 21.8949 6.20961C22 6.26627 22 6.43179 22 6.76283V17.9259"
+                                stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                            <path d="M13 13C17.8 13 21 10.6667 22 10" stroke="currentColor" stroke-width="1.5"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg> Nuestras Musicas</a>
+                </li>
+
+                <li><a href="#sorpresas">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"
+                            color="#ffffff" fill="none">
+                            <path
+                                d="M4 11V15C4 18.2998 4 19.9497 5.02513 20.9749C6.05025 22 7.70017 22 11 22H13C16.2998 22 17.9497 22 18.9749 20.9749C20 19.9497 20 18.2998 20 15V11"
+                                stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                            <path
+                                d="M3 9C3 8.25231 3 7.87846 3.20096 7.6C3.33261 7.41758 3.52197 7.26609 3.75 7.16077C4.09808 7 4.56538 7 5.5 7H18.5C19.4346 7 19.9019 7 20.25 7.16077C20.478 7.26609 20.6674 7.41758 20.799 7.6C21 7.87846 21 8.25231 21 9C21 9.74769 21 10.1215 20.799 10.4C20.6674 10.5824 20.478 10.7339 20.25 10.8392C19.9019 11 19.4346 11 18.5 11H5.5C4.56538 11 4.09808 11 3.75 10.8392C3.52197 10.7339 3.33261 10.5824 3.20096 10.4C3 10.1215 3 9.74769 3 9Z"
+                                stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" />
+                            <path
+                                d="M6 3.78571C6 2.79949 6.79949 2 7.78571 2H8.14286C10.2731 2 12 3.7269 12 5.85714V7H9.21429C7.43908 7 6 5.56091 6 3.78571Z"
+                                stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" />
+                            <path
+                                d="M18 3.78571C18 2.79949 17.2005 2 16.2143 2H15.8571C13.7269 2 12 3.7269 12 5.85714V7H14.7857C16.5609 7 18 5.56091 18 3.78571Z"
+                                stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" />
+                            <path d="M12 11L12 22" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg> Pregunta</a>
+                </li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- Contenido Principal -->
+    <main>
+        <button id="toggleDarkMode" class="floating-button" title="Modo">
+            <i class="ri-sun-line"></i>
+        </button>
+
+        <section id="inicio" class="content-section active">
+            <h2>¡Bienvenida, Chiquita!</h2>
+            <p id="daysCount"></p> <!-- Aquí se mostrará el conteo de días --> <br>
+            <h2>Así comenzó todo:</h2>
+
+            <!-- Galería de Fotos -->
+            <div class="gallery">
+                <!-- Foto 1 -->
+                <div class="gallery-item">
+                    <img src="https://afiliadoinformado.cl/wp-content/uploads/2018/06/reclamos-1-768x576.jpg"
+                        alt="Con tus reclamos por lo que estaban comentado sobre lo pasó en el punte">
+                    <div class="gallery-description">
+                        <p>Con tus reclamos por lo que estaban comentado sobre lo pasó en el punte</p>
+                    </div>
+                </div>
+
+                <!-- Foto 2 -->
+                <div class="gallery-item">
+                    <img src="https://whaticket.com/wp-content/uploads/2023/02/enviar-mensajes-masivos-whatsapp-business.png"
+                        alt="Empezamos a hablar mas seguido por whatsapp">
+                    <div class="gallery-description">
+                        <p>Empezamos a hablar mas seguido por whatsapp</p>
+                    </div>
+                </div>
+
+                <!-- Foto 3 -->
+                <div class="gallery-item">
+                    <img src="assets/img/LaUnionHuacho.png"
+                        alt="Tuve que venir a Huacho acompañando a Maycohol">
+                    <div class="gallery-description">
+                        <p>Tuve que venir a Huacho acompañando a Maycohol</p>
+                    </div>
+                </div>
+
+                <!-- Foto 1 -->
+                <div class="gallery-item">
+                    <img src="assets/img/primermensaje.jpeg"
+                        alt="Nuevamente me llamaste CHIQUITO o AMOR. Alaaa mi corazon estaba a mil.">
+                    <div class="gallery-description">
+                        <p>Nuevamente me llamaste CHIQUITO o AMOR. Alaaa mi corazon estaba a mil.</p>
+                    </div>
+                </div>
+
+                <!-- Foto 2 -->
+                <div class="gallery-item">
+                    <img src="assets/img/Chukipresentarhermana.jpeg"
+                        alt="La chuki como siempre querien presentarme a tus hermanas.">
+                    <div class="gallery-description">
+                        <p>La chuki como siempre querien presentarme a tus hermanas.</p>
+                    </div>
+                </div>
+
+                <!-- Foto 2 -->
+                <div class="gallery-item">
+                    <img src="https://sobrelibrosycultura.com/wp-content/uploads/2023/07/negritos-huanunco-bs-as.jpeg"
+                        alt="Tuve que ir a La Unión por un ensayo para mayo.">
+                    <div class="gallery-description">
+                        <p>Tuve que ir a La Unión por un ensayo para mayo.</p>
+                    </div>
+                </div>
+                <!-- Foto 2 -->
+                <div class="gallery-item">
+                    <img src="assets/img/Huachoca.png"
+                        alt="Viaje a Barranca para vernos y hablar un poco de tooodo lo que habia pasado y tratar de arreglar las cosas. Estaba un poco nervioso">
+                    <div class="gallery-description">
+                        <p>Viaje a Barranca para vernos y hablar un poco de tooodo lo que habia pasado y tratar de arreglar las cosas. Estaba un poco nervioso</p>
+                    </div>
+                </div>
+                <!-- Foto 2 -->
+                <div class="gallery-item">
+                    <img src="https://cdn.www.gob.pe/uploads/document/file/3652720/3.jpg.jpg"
+                        alt="Nos pusimos a hablar en ese lugar hermosa, sabes por qué? siempre lo pensé así desde el primer día que nos conocimos">
+                    <div class="gallery-description">
+                        <p>Nos pusimos a hablar en ese lugar hermosa, sabes por qué? siempre lo pensé así desde el primer día que nos conocimos</p>
+                    </div>
+                </div>
+                <!-- Foto 2 -->
+                <div class="gallery-item">
+                    <img src="https://barranca.pe/wp-content/uploads/2019/03/591aa99eeb593.jpeg"
+                        alt="Te pedí regresar porque sentí que podiamos seguir intentado lo nuestro">
+                    <div class="gallery-description">
+                        <p>Te pedí regresar porque sentí que podiamos seguir intentado lo nuestro</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="https://imgmedia.wapa.pe/650x362/wapa/original/2022/02/10/61771260ae1a6625c53d3556.webp"
+                        alt="Caminamos de la mano por todo el malecon de Barranca, recuerdas?">
+                    <div class="gallery-description">
+                        <p>Caminamos de la mano por todo el malecon de Barranca, recuerdas?</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src=" https://consultasenlinea.mincetur.gob.pe/fichaInventario//foto.aspx?cod=421268"
+                        alt="Chismeamos un poco esperando mi carro xD">
+                    <div class="gallery-description">
+                        <p>Chismeamos un poco esperando mi carro xD</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="assets/img/LaUnionHuacho.png"
+                        alt="Me fuí a La Unión muy contento porque estaba con la chica que quería">
+                    <div class="gallery-description">
+                        <p>Me fuí a La Unión muy contento porque estaba con la chica que quería</p>
+                    </div>
+                </div>
+               
+            </div>
+        </section>
+
+
+        <section id="mensajes" class="content-section">
+            <h2>Mensaje Especial del Día</h2>
+            <div class="mensaje-container">
+                <p id="mensaje-texto">hoalaa</p>
+                <button id="nuevo-mensaje-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" color="#ffffff"
+                        fill="none">
+                        <path
+                            d="M12.5 2.01175C12.3344 2.00395 12.1677 2 12 2C6.47778 2 2 6.28357 2 11.5667C2 14.1051 3.03333 16.4115 4.71889 18.1231C5.09 18.5 5.33778 19.0148 5.23778 19.5448C5.07275 20.4112 4.69874 21.2194 4.15111 21.893C5.59195 22.161 7.09014 21.9197 8.37499 21.2364C8.82918 20.9949 9.05627 20.8741 9.21653 20.8496C9.37678 20.8251 9.60633 20.8682 10.0654 20.9545C10.7032 21.0742 11.3507 21.1343 12 21.1334C17.5222 21.1334 22 16.8499 22 11.5667C22 11.3765 21.9942 11.1875 21.9827 11"
+                            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M15 5.5H22M18.5 2L18.5 9" stroke="currentColor" stroke-width="1.5"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M11.9955 12H12.0045M15.991 12H16M8 12H8.00897" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                    </svg> Nuevo Mensaje</button>
+            </div>
+        </section>
+
+        <section id="fotos" class="content-section">
+            <h2>Nuestras Fotos Pendientes</h2>
+            <p>Entre tanto mensajes de tiktoks nos propusimos tomarnos muchas fotos que me parecen bonitas, te las muestro para que no se te lo olviden</p>
+
+            <div class="collage-container">
+                <div class="collage-item">
+                    <img src="assets/img/tiktok/fotostiktok1.jpeg"
+                        alt="Nuestros momentos son mate de risa">
+                    <div class="overlay">
+                        <p>Nuestros momentos son mate de risa</p>
+                    </div>
+                </div>
+                <div class="collage-item">
+                    <img src="assets/img/tiktok/fotostiktok2.jpeg"
+                        alt="Si, peleamos, pero es parte de las relaciones">
+                    <div class="overlay">
+                        <p>Si, peleamos, pero es parte de las relaciones</p>
+                    </div>
+                </div>
+                <div class="collage-item">
+                    <img src="assets/img/tiktok/fotostiktok3.jpeg"
+                        alt="Para nuestro fonde de pantalla?">
+                    <div class="overlay">
+                        <p>Para nuestro fonde de pantalla?</p>
+                    </div>
+                </div>
+                <div class="collage-item">
+                    <img src="assets/img/tiktok/fotostiktok4.jpeg"
+                        alt="Como te haría subir si estas con faldita o no puedas">
+                    <div class="overlay">
+                        <p>Como te haría subir si estas con faldita o cuando no puedas</p>
+                    </div>
+                </div>
+                <!-- Agrega más imágenes según sea necesario -->
+            </div>
+            <div class="collage-container">
+                <div class="collage-item">
+                    <img src="assets/img/tiktok/fotostiktok5.jpeg"
+                        alt="La primera foto que quiero tomarnos">
+                    <div class="overlay">
+                        <p>La primera foto que quiero tomarnos</p>
+                    </div>
+                </div>
+                <div class="collage-item">
+                    <img src="assets/img/tiktok/fotostiktok6.jpeg"
+                        alt="Descripción de la foto 2">
+                    <div class="overlay">
+                        <p>No me quieres? no digas eso, claro que te quiero, recuerdas?</p>
+                    </div>
+                </div>
+                <div class="collage-item">
+                    <img src="assets/img/tiktok/fotostiktok7.jpeg"
+                        alt="Por qué lo quitaste? pipipi">
+                    <div class="overlay">
+                        <p>Por qué lo quitaste? pipipi</p>
+                    </div>
+                </div>
+                <div class="collage-item">
+                    <img src="assets/img/tiktok/fotostiktok8.jpeg"
+                        alt="Algun día nos escapamos de todos y nos vamos solos a conocer lugares chebres">
+                    <div class="overlay">
+                        <p>Algun día nos escapamos de todos y nos vamos solos a conocer lugares chebres</p>
+                    </div>
+                </div>
+                <!-- Agrega más imágenes según sea necesario -->
+            </div><div class="collage-container">
+                <div class="collage-item">
+                    <img src="assets/img/tiktok/fotostiktok9.jpeg"
+                        alt="Algun día nos escapamos de todos y nos vamos solos a conocer lugares chebres x2">
+                    <div class="overlay">
+                        <p>Algun día nos escapamos de todos y nos vamos solos a conocer lugares chebres x2</p>
+                    </div>
+                </div>
+                <div class="collage-item">
+                    <img src="assets/img/tiktok/fotostiktok10.jpeg"
+                        alt="Tú tienes mi rolex y me lo tienes que dar">
+                    <div class="overlay">
+                        <p>Tú tienes mi rolex y me lo tienes que dar</p>
+                    </div>
+                </div>
+                <div class="collage-item">
+                    <img src="assets/img/tiktok/fotostiktok11.jpeg"
+                        alt="Claro que te cargo y me abrazas fuerte, ya?">
+                    <div class="overlay">
+                        <p>Claro que te cargo y me abrazas fuerte, ya?</p>
+                    </div>
+                </div>
+                <div class="collage-item">
+                    <img src="assets/img/tiktok/fotostiktok12.jpeg"
+                        alt="Abrazaditos en mi cuarto viendo tu peli favorita">
+                    <div class="overlay">
+                        <p>Abrazaditos en mi cuarto viendo tu peli favorita</p>
+                    </div>
+                </div>
+                <!-- Agrega más imágenes según sea necesario -->
+            </div><div class="collage-container">
+                <div class="collage-item">
+                    <img src="assets/img/tiktok/fotostiktok13.jpeg"
+                        alt="Combinar con el barca, ufffff.">
+                    <div class="overlay">
+                        <p>Combinar con el barca, ufffff. No digo, somos compatibles</p>
+                    </div>
+                </div>
+                <div class="collage-item">
+                    <img src="assets/img/tiktok/fotostiktok14.jpeg"
+                        alt="Y nos sacamos la mrd? xD">
+                    <div class="overlay">
+                        <p>Y nos sacamos la mrd? xD</p>
+                    </div>
+                </div>
+                <div class="collage-item">
+                    <img src="assets/img/tiktok/fotostiktok15.jpeg"
+                        alt="Hacernos la cara un desorden total xD. Te dejaré como payasa">
+                    <div class="overlay">
+                        <p>Hacernos la cara un desorden total xD. Te dejaré como payasa</p>
+                    </div>
+                </div>
+                <div class="collage-item">
+                    <img src="assets/img/tiktok/fotostiktok16.jpeg"
+                        alt="Una y mil fotos para nuestra galeria, chiquita">
+                    <div class="overlay">
+                        <p>Una y mil fotos para nuestra galeria, chiquita</p>
+                    </div>
+                </div>
+                <!-- Agrega más imágenes según sea necesario -->
+            </div>
+        </section>
+
+        <section id="musicas" class="content-section">
+            <h2>Nuestras Músicas</h2>
+            <p>Acá te pongo las musicas que mas significan para mi y para hacerte recorda un poco</p>
+
+            <div class="music-container">
+                <div class="music-card">
+                    <div class="music-image">
+                        <img src="https://i1.sndcdn.com/artworks-2NyFz3enrdJvCr2y-RJisJg-t1080x1080.jpg"
+                            alt="Portada del álbum">
+                    </div>
+                    <div class="music-info">
+                        <h3>Un Finde</h3>
+                        <p>Ke Personajes</p>
+                        <p>La primera musica que me dedicates hace uff y se volvió un himno </p>
+                    </div>
+                    <div class="music-controls">
+                        <audio controls>
+                            <source src="assets/music/finde.mp3" type="audio/mpeg">
+                            Tu navegador no soporta el elemento de audio.
+                        </audio>
+                    </div>
+                </div>
+                
+                <div class="music-card">
+                    <div class="music-image">
+                        <img src="https://i.ytimg.com/vi/EsY5kRIBM8Y/maxresdefault.jpg"
+                            alt="Portada del álbum">
+                    </div>
+                    <div class="music-info">
+                        <h3>As It Was</h3>
+                        <p>Harry Styles</p>
+                        <p>Nuestro estado. Aún me pregunto, por qué lo quitaste?</p>
+                    </div>
+                    <div class="music-controls">
+                        <audio controls>
+                            <source src="assets/music/Harry Styles - As It Was.mp3" type="audio/mpeg">
+                            Tu navegador no soporta el elemento de audio.
+                        </audio>
+                    </div>
+                </div>
+                <div class="music-card">
+                    <div class="music-image">
+                        <img src="https://i.ytimg.com/vi/ZiQyP0JWuEg/maxresdefault.jpg"
+                            alt="Portada del álbum">
+                    </div>
+                    <div class="music-info">
+                        <h3>Cristina</h3>
+                        <p>Sebastian Yatra</p>
+                        <p>tú de 22 y yo de 26?</p>
+                    </div>
+                    <div class="music-controls">
+                        <audio controls>
+                            <source src="assets/music/Sebastián Yatra - Cristina.mp3" type="audio/mpeg">
+                            Tu navegador no soporta el elemento de audio.
+                        </audio>
+                    </div>
+                </div>
+                <div class="music-card">
+                    <div class="music-image">
+                        <img src="https://i.ytimg.com/vi/Q2ftMmazZCU/maxresdefault.jpg"
+                            alt="Portada del álbum">
+                    </div>
+                    <div class="music-info">
+                        <h3>Sorry 4 That Match</h3>
+                        <p>Feid</p>
+                        <p>Con que ganas me lo cantabas en Nando</p>
+                    </div>
+                    <div class="music-controls">
+                        <audio controls>
+                            <source src="assets/music/Feid - SORRY 4 THAT MUCH.mp3" type="audio/mpeg">
+                            Tu navegador no soporta el elemento de audio.
+                        </audio>
+                    </div>
+                </div>
+            </div>
+            <div class="music-container">
+                <div class="music-card">
+                    <div class="music-image">
+                        <img src="https://i.ytimg.com/vi/ROgcM9-N9jM/maxresdefault.jpg"
+                            alt="Portada del álbum">
+                    </div>
+                    <div class="music-info">
+                        <h3>Se me olvida</h3>
+                        <p>Faid</p>
+                        <p>Que bonita te veias cantando, pero con tu cara de chuki 2</p>
+                    </div>
+                    <div class="music-controls">
+                        <audio controls>
+                            <source src="assets/music/Feid_ Maisak - SE ME OLVIDA.mp3" type="audio/mpeg">
+                            Tu navegador no soporta el elemento de audio.
+                        </audio>
+                    </div>
+                </div>
+                <div class="music-card">
+                    <div class="music-image">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVLJJB6Obk8fOt0noagvMOw6xzWIjJ5YsezQ&s"
+                            alt="Portada del álbum">
+                    </div>
+                    <div class="music-info">
+                        <h3>It Will Rain</h3>
+                        <p>Bruno Mars</p>
+                        <p>Las musicas que suelo escuchar cuando estoy concentrado y te gustó</p>
+                    </div>
+                    <div class="music-controls">
+                        <audio controls>
+                            <source src="assets/music/Bruno Mars - It Will Rain.mp3" type="audio/mpeg">
+                            Tu navegador no soporta el elemento de audio.
+                        </audio>
+                    </div>
+                </div>
+                <div class="music-card">
+                    <div class="music-image">
+                        <img src="https://i.scdn.co/image/ab67616d0000b2736489e4b1d1e992178147344c"
+                            alt="Portada del álbum">
+                    </div>
+                    <div class="music-info">
+                        <h3>Dejame volver contigo</h3>
+                        <p>Makano</p>
+                        <p>No sé si lo recuerdes pero yo lo hago cada que lo ponen</p>
+                    </div>
+                    <div class="music-controls">
+                        <audio controls>
+                            <source src="assets/music/dejame volver contigo  makano.mp3" type="audio/mpeg">
+                            Tu navegador no soporta el elemento de audio.
+                        </audio>
+                    </div>
+                </div>
+                <div class="music-card">
+                    <div class="music-image">
+                        <img src="https://i.scdn.co/image/ab67616d0000b273bdc43e1401b3d1f040dd978b"
+                            alt="Portada del álbum">
+                    </div>
+                    <div class="music-info">
+                        <h3>Amor Vuelve</h3>
+                        <p>Grupo 5 ft Eddy Herrera</p>
+                        <p>Y por último, la canción que me recuerda a ti</p>
+                    </div>
+                    <div class="music-controls">
+                        <audio controls>
+                            <source src="assets/music/Grupo 5_ Eddy Herrera - Amor Vuelve.mp3" type="audio/mpeg">
+                            Tu navegador no soporta el elemento de audio.
+                        </audio>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="sorpresas" class="content-section">
+            <h2>Pregunta</h2>
+            <p>Esta pregunta es muy importante para mi</p>
+
+            <!-- Contenedor de la sorpresa -->
+            <div class="sorpresa-container">
+                <button id="sorpresa-btn" class="sorpresa-btn"><i class="ri-star-smile-line"></i> ¡Haz clic para ver la pregunta!</button>
+                <div id="sorpresa-content" class="sorpresa-content hidden">
+                    <img src="https://media.tenor.com/KgrZ0zeO1GMAAAAe/me-perdonas-nina.png" alt="me perdonas?">
+                    <p>Me perdonas por hacerte pensar que no eres importante para mí? </p>
+                </div>
+            </div>
+            
+        </section>
+    </main>
+
+    <script src="script/dashboard.js"></script>
+</body>
+
+</html>
